@@ -32,6 +32,8 @@ use crate::{
 
 use super::keyboard::KeyboardState;
 
+use super::cursor::get_cursor;
+
 unsafe fn generate_guid() -> String {
     let mut guid: GUID = std::mem::zeroed();
     CoCreateGuid(&mut guid);
@@ -304,6 +306,14 @@ impl Window {
             } else {
                 None
             }
+        }
+    }
+
+    pub fn set_mouse_cursor(&mut self, mouse_cursor: MouseCursor) {
+        // Check here is mouse cursor needs to be changed?
+
+        match mouse_cursor {
+            MouseCursor::Hidden => 
         }
     }
 }
